@@ -53,6 +53,10 @@ enum MessageType {
 	MsgReadIndexResp   = 16;
 	MsgPreVote         = 17;
 	MsgPreVoteResp     = 18;
+	MsgSetHeartBeat     = 19;
+	MsgSetHeartBeatResp = 20;
+	MsgSyncReplicate    = 21;
+	MsgSyncReplication  = 22;
 }
 
 message Message {
@@ -68,6 +72,8 @@ message Message {
 	optional bool        reject      = 10 [(gogoproto.nullable) = false];
 	optional uint64      rejectHint  = 11 [(gogoproto.nullable) = false];
 	optional bytes       context     = 12;
+	optional uint64      time        = 13 [(gogoproto.nullable) = false];
+	optional uint64      length      = 14 [(gogoproto.nullable) = false];
 }
 
 message HardState {
